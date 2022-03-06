@@ -52,7 +52,7 @@ pipeline {
 
                 echo "VM name / IP: ${params.IP}"
 
-               // mv my_file ${my_file}
+                mv my_file ${FILE}
 
 
             }
