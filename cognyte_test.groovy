@@ -57,10 +57,12 @@ pipeline {
             }
         }
 
-        stage('Clone sources') {
+        stage('Checkout') {
             steps {
-                git url: 'https://github.com/NeryaPe/Cognyte.git'
+                git 'https://github.com/NeryaPe/Cognyte.git'
             }
         }
+
+
     }
 }
