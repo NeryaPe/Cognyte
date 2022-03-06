@@ -52,11 +52,13 @@ pipeline {
 
                 echo "VM name / IP: ${params.IP}"
 
-                echo ll
-                //mv my_file ${FILE}
 
 
             }
+        }
+
+        stage('Clone sources') {
+             git url: 'https://github.com/NeryaPe/Cognyte.git'
         }
     }
 }
