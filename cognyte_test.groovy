@@ -71,7 +71,7 @@ pipeline {
 
         stage('Execute Ansible') {
             steps {
-                ansiblePlaybook become: true, colorized: true, credentialsId: 'lancert', disableHostKeyChecking: true, installation: 'ansible', playbook: 'movefiles.yaml'
+                ansiblePlaybook become: true, colorized: true, credentialsId: 'lancert', disableHostKeyChecking: true, installation: 'ansible', playbook: 'setup.yml'
             }
         }
 
