@@ -32,11 +32,11 @@ pipeline {
                             script{
                                     // Get file using input step, will put it in build directory
                                     print "=================Please upload your property files ====================="
-                                    def inputFile = input message: 'Upload file', parameters: [file(name: 'global.properties')]
+                                   // def inputFile = input message: 'Upload file', parameters: [file(name: 'global.properties')]
                                     // Read contents and write to workspace
-                                    writeFile(file: 'global.properties', text: inputFile.readToString())
+                                    //writeFile(file: 'global.properties', text: inputFile.readToString())
                                     // Stash it for use in a different part of the pipeline
-                                    stash name: 'data', includes: 'global.properties'
+                                    //stash name: 'data', includes: 'global.properties'
                             }
                       
                 }
@@ -52,7 +52,8 @@ pipeline {
 
                 echo "VM name / IP: ${params.IP}"
 
-                mv my_file ${FILE}
+                echo ll
+                //mv my_file ${FILE}
 
 
             }
