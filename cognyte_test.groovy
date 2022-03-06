@@ -10,7 +10,7 @@ pipeline {
         text(name: 'IP', defaultValue: '', description: 'Enter some information about the VM name / IP')
        
        // file(name: "FILE", description: 'Choose path to upload file1.zip from local system.') 
-          //file(name: "FILE", file: "file1.zip", description: 'Choose path to upload file1.zip from local system.') 
+        file(name: "FILE", file: "file1.zip", description: 'Choose path to upload file1.zip from local system.') 
 
        // text(name: 'FILE', defaultValue: '', description: 'file upload - the user should be able to upload ssh-public-key file for the new employee.')
             
