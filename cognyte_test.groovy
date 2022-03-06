@@ -57,11 +57,19 @@ pipeline {
             }
         }
 
+           stage ('Checkout 1') {
+          steps {
+            git 'https://github.com/lev-tmp/jenkins2-course-spring-petclinic.git'
+          }
+        }
+
         stage('Checkout') {
             steps {
                 git 'https://github.com/NeryaPe/Cognyte.git'
             }
         }
+
+
 
 
     }
