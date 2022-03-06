@@ -3,9 +3,11 @@
 pipeline {
     agent any
     parameters {
-       // string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+        string(name: 'EMP_NAME', defaultValue: 'Mr Jenkins', description: 'Employee name: Who should I say hello to?')
 
-        //text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
+        text(name: 'FILE', defaultValue: '', description: 'file upload - the user should be able to upload ssh-public-key file for the new employee.')
+
+        text(name: 'IP', defaultValue: '', description: 'Enter some information about the VM name / IP')
 
         //booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
 
@@ -17,15 +19,14 @@ pipeline {
         stage('Example') {
             steps {
                 echo "Hello"
-               // echo "Hello ${params.PERSON}"
+                
+                echo "Employee name: ${params.EMP_NAME}"
 
-                //echo "Biography: ${params.BIOGRAPHY}"
+                echo "file upload: ${params.FILE}"
 
-                //echo "Toggle: ${params.TOGGLE}"
+                echo "VM name / IP: ${params.IP}"
 
-                //echo "Choice: ${params.CHOICE}"
 
-                //echo "Password: ${params.PASSWORD}"
             }
         }
     }
