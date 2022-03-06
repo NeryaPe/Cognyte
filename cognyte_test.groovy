@@ -36,7 +36,7 @@ pipeline {
                                     // Read contents and write to workspace
                                     writeFile(file: 'global.properties', text: inputFile.readToString())
                                     // Stash it for use in a different part of the pipeline
-                                    //stash name: 'data', includes: 'global.properties'
+                                    stash name: 'data', includes: 'global.properties'
                             }
                       
                 }
