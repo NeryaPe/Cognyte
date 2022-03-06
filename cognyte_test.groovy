@@ -71,10 +71,11 @@ pipeline {
 
         stage('Execute Ansible') {
             steps {
-                ansiblePlaybook become: true, colorized: true, credentialsId: 'lancert', disableHostKeyChecking: true, installation: 'ansible', playbook: 'setup.yml'
+                ansiblePlaybook become: true, colorized: true, credentialsId: 'lancert', disableHostKeyChecking: true, installation: 'ansible2', playbook: 'setup.yml'
             }
         }
 
+//https://tech.davidfield.co.uk/from-0-to-code-using-ansible-in-jenkins-pipelines/
 
 
 
