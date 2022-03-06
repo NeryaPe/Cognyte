@@ -5,9 +5,14 @@ pipeline {
     parameters {
         string(name: 'EMP_NAME', defaultValue: 'Mr Jenkins', description: 'Employee name: Who should I say hello to?')
 
-        text(name: 'FILE', defaultValue: '', description: 'file upload - the user should be able to upload ssh-public-key file for the new employee.')
+        
 
         text(name: 'IP', defaultValue: '', description: 'Enter some information about the VM name / IP')
+       
+        file(name: "FILE", file: "file1.zip", description: 'Choose path to upload file1.zip from local system.') 
+
+       // text(name: 'FILE', defaultValue: '', description: 'file upload - the user should be able to upload ssh-public-key file for the new employee.')
+            
 
         //booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
 
@@ -19,7 +24,7 @@ pipeline {
         stage('Example') {
             steps {
                 echo "Hello"
-                
+
                 echo "Employee name: ${params.EMP_NAME}"
 
                 echo "file upload: ${params.FILE}"
