@@ -7,7 +7,7 @@ pipeline {
 
         
 
-        text(name: 'IP', defaultValue: '', description: 'Enter some information about the VM name / IP')
+        text(name: 'IP', defaultValue: '192.168.33.39', description: 'Enter some information about the VM name / IP')
        
         file(name: "FILE", description: 'Choose path to upload file1.zip from local system.') 
         //file(name: "FILE", file: "file1.zip", description: 'Choose path to upload file1.zip from local system.') 
@@ -71,8 +71,10 @@ pipeline {
 
         stage('Execute Ansible') {
             steps {
-                ansiblePlaybook become: true, colorized: true, credentialsId: 'lancert', disableHostKeyChecking: true, installation: 'ansible2', playbook: 'setup.yml'
+                //ansiblePlaybook become: true, colorized: true, credentialsId: 'lancert', disableHostKeyChecking: true, installation: 'ansible2', playbook: 'setup.yml'
+                sh "sudo ansible-playbook -i ${params.IP}, setup.yml"
             }
+
         }
 
 //https://tech.davidfield.co.uk/from-0-to-code-using-ansible-in-jenkins-pipelines/
