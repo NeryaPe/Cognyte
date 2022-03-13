@@ -9,15 +9,8 @@ pipeline {
 
         text(name: 'IP', defaultValue: '192.168.33.39', description: 'Enter some information about the VM name / IP')
        
-        file(name: "FILE", description: 'Choose path to upload file1.zip from local system.') 
+        file(name: "FILE", description: 'file upload - the user should be able to upload ssh-public-key file for the new employee.') 
         //file(name: "FILE", file: "file1.zip", description: 'Choose path to upload file1.zip from local system.') 
-
-       // text(name: 'FILE', defaultValue: '', description: 'file upload - the user should be able to upload ssh-public-key file for the new employee.')
-            
-
-        //booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
-
-        //choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
 
         //password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
@@ -42,7 +35,7 @@ pipeline {
                 }
             }
             //
-        stage('Example') {
+        stage('Print parameters & Verify') {
             steps {
                 echo "Hello"
 
@@ -52,7 +45,8 @@ pipeline {
 
                 echo "VM name / IP: ${params.IP}"
 
-
+                // Verify the user input: 
+                assert null == params.EMP_NAME || String == params.EMP_NAME.getClass()
 
             }
         }
@@ -71,7 +65,9 @@ pipeline {
 
         stage('Execute Ansible') {
             steps {
+                // Execute ansible with plugin
                 //ansiblePlaybook become: true, colorized: true, credentialsId: 'lancert', disableHostKeyChecking: true, installation: 'ansible2', playbook: 'setup.yml'
+                // Execute ansible with out plugin
                 sh "sudo ansible-playbook -i ${params.IP}, setup.yml"
             }
 
