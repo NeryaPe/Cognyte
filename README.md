@@ -13,7 +13,4 @@ sudo yum install ansible
 
 4- update ansible Configuration in Global Tool Configuration
 
-5- 
-In /etc/ansible/hosts list the host machines: [localhost] IP address of local host
-u should have passwordless connection using ssh-keygen -t rsa which will give u a rsa.pubkey which should be copied on authorization keys of host machine
-then u can run the playbook
+5- run the cognyte_test.groovy Pipeline in jenkins
